@@ -153,10 +153,10 @@ def _validate_adjustments(ownership_map, adjustment_counts, commands):
         if isinstance(command, AdjustmentCreateCommand):
             if player not in provided_adjustment_terriories:
                 provided_adjustment_terriories[player] = set()
-            elif adjustment_counts[player] < 0:
-                raise AssertionError("{} attempting to Create when required to Disband".format(player))
-            elif len(provided_adjustment_terriories[player]) >= adjustment_counts[player]:
-                raise AssertionError("{} attempting to Create too many units in one turn".format(player))
+#             elif adjustment_counts[player] < 0:
+#                 raise AssertionError("{} attempting to Create when required to Disband".format(player))
+#             elif len(provided_adjustment_terriories[player]) >= adjustment_counts[player]:
+#                 raise AssertionError("{} attempting to Create too many units in one turn".format(player))
 
             relevant_command_territory = game_map.relevant_name_for_territory(command.unit.position)
             if relevant_command_territory in provided_adjustment_terriories[player]:
@@ -166,10 +166,10 @@ def _validate_adjustments(ownership_map, adjustment_counts, commands):
         elif isinstance(command, AdjustmentDisbandCommand):
             if player not in provided_adjustment_terriories:
                 provided_adjustment_terriories[player] = set()
-            elif adjustment_counts[player] > 0:
-                raise AssertionError("{} attempting to Disband when expected to Create".format(player))
-            elif len(provided_adjustment_terriories[player]) >= -adjustment_counts[player]:
-                raise AssertionError("{} attempting to Disband too many units in one turn".format(player))
+#             elif adjustment_counts[player] > 0:
+#                 raise AssertionError("{} attempting to Disband when expected to Create".format(player))
+#             elif len(provided_adjustment_terriories[player]) >= -adjustment_counts[player]:
+#                 raise AssertionError("{} attempting to Disband too many units in one turn".format(player))
 
             relevant_command_territory = game_map.relevant_name_for_territory(command.unit.position)
             if relevant_command_territory in provided_adjustment_terriories[player]:
