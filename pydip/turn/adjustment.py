@@ -51,7 +51,7 @@ def calculate_adjustments(ownership_map, player_units):
         ownership_map.home_territories)
 
     adjustment_counts = {
-        player : len(new_ownership_map.owned_territories[player]) - len(player_units[player])
+        player : 10 #len(new_ownership_map.owned_territories[player]) - len(player_units[player])
         for player in all_players
     }
 
